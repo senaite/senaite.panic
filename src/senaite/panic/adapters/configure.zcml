@@ -2,8 +2,19 @@
   xmlns="http://namespaces.zope.org/zope"
   i18n_domain="senaite.panic">
 
+  <include package="archetypes.schemaextender" />
+
+  <!-- Schema modifier for IAnalysisRequest -->
+  <adapter
+    name="senaite.panic.analysisrequest.schemamodifier"
+    provides="archetypes.schemaextender.interfaces.ISchemaModifier"
+    factory=".content.AnalysisRequestSchemaModifier" />
+
   <!-- Schema modifier for IAnalysisSpec -->
-  <adapter factory=".content.AnalysisSpecSchemaModifier" />
+  <adapter
+    name="senaite.panic.analysisrequest.schemamodifier"
+    provides="archetypes.schemaextender.interfaces.ISchemaModifier"
+    factory=".content.AnalysisSpecSchemaModifier" />
 
   <!-- Adapter for Analysis Specifications Widget's listing
   Adds the columns `min_panic` and `max_panic` to the listing and makes their

@@ -18,39 +18,66 @@
 # Copyright 2019 by it's authors.
 # Some rights reserved, see README and LICENSE.
 
+import collections
+
 from Products.validation import validation
 from Products.validation.interfaces.IValidator import IValidator
+from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
+from senaite.panic import ISenaitePanicLayer
+from senaite.panic import is_installed
 from senaite.panic import messageFactory as _
 from zope.component import adapts
 from zope.interface import implements
 
 from bika.lims import api
+from bika.lims.interfaces import IAnalysisRequest
 from bika.lims.interfaces import IAnalysisSpec
 from bika.lims.validators import \
     AnalysisSpecificationsValidator as BaseValidator
 from bika.lims.validators import get_record_value
-import collections
 
 
-class AnalysisSpecSchemaModifier(object):
-    adapts(IAnalysisSpec)
-    implements(ISchemaModifier)
+def fiddle_panic_subfields(schema):
+    # Add panic alert sub fields and labels
+    labels = collections.OrderedDict((
+        ("min_panic", _("Min panic")),
+        ("max_panic", _("Max panic")),
+    ))
+    for label in labels.keys():
+        if label not in schema["ResultsRange"].subfields:
+            schema["ResultsRange"].subfields += (label,)
+
+    schema["ResultsRange"].subfield_labels.update(labels)
+    return schema
+
+
+class AnalysisRequestSchemaModifier(object):
+    adapts(IAnalysisRequest)
+    implements(ISchemaModifier, IBrowserLayerAwareExtender)
+    # Modify the schema only if senaite.panic is installed
+    layer = ISenaitePanicLayer
 
     def __init__(self, context):
         self.context = context
 
     def fiddle(self, schema):
         # Add panic alert sub fields and labels
-        labels = collections.OrderedDict((
-            ("min_panic", _("Min panic")),
-            ("max_panic", _("Max panic")),
-        ))
-        for label in labels.keys():
-            if label not in schema["ResultsRange"].subfields:
-                schema["ResultsRange"].subfields += (label,)
+        return fiddle_panic_subfields(schema)
 
-        schema["ResultsRange"].subfield_labels.update(labels)
+
+class AnalysisSpecSchemaModifier(object):
+    adapts(IAnalysisSpec)
+    implements(ISchemaModifier, IBrowserLayerAwareExtender)
+    # Modify the schema only if senaite.panic is installed
+    layer = ISenaitePanicLayer
+
+    def __init__(self, context):
+        self.context = context
+
+    def fiddle(self, schema):
+        # Add panic alert sub fields and labels
+        schema = fiddle_panic_subfields(schema)
 
         # Set the sub field validators
         validator = AnalysisSpecificationsValidator()
