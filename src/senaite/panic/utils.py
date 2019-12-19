@@ -100,7 +100,7 @@ def get_panic_range(analysis):
     specs = request.getSpecification()
 
     # Get the specification values for all services
-    specs = specs.getResultsRange() or []
+    specs = specs and specs.getResultsRange() or []
 
     # Filter the spec values for our analysis
     keyword = analysis.getKeyword()
