@@ -1,6 +1,7 @@
-
+from bika.lims.content.analysisspec import ResultsRangeDict
 from bika.lims.interfaces import ISubmitted
 from bika.lims import api
+from bika.lims.interfaces.analysis import IRequestAnalysis
 
 
 def has_analyses_in_panic(sample):
@@ -15,42 +16,69 @@ def has_analyses_in_panic(sample):
     return False
 
 
-def is_in_panic(brain_or_object):
+def is_in_panic(analysis):
     """Returns whether if the result of the analysis is below the min panic or
     above the max panic
     """
-    result = api.safe_getattr(brain_or_object, "getResult", None)
-    if not api.is_floatable(result):
+    # To begin with, the result must be floatable
+    result = to_float_or_none(analysis.getResult())
+    if result is None:
         return False
 
-    result_range = api.safe_getattr(brain_or_object, "getResultsRange", None)
-    if not result_range:
-        return False
-
-    result = api.to_float(result)
+    # Get panic min and max
+    panic_min, panic_max = get_panic_tuple(analysis)
 
     # Below the min panic?
-    panic_min = result_range.get("min_panic", "")
-    panic_min = api.is_floatable(panic_min) and api.to_float(panic_min) or None
-    if panic_min is not None and result <= panic_min:
-        # The result is a detection limit?
-        obj = api.get_object(brain_or_object)
-        if obj.isUpperDetectionLimit() and result == panic_min:
-            # The result is above the panic min
-            return False
-        return True
+    if panic_min is not None:
+        if result <= panic_min:
+            return True
 
-    # Above the max panic
-    panic_max = result_range.get("max_panic", "")
-    panic_max = api.is_floatable(panic_max) and api.to_float(panic_max) or None
-    if panic_max is not None and result >= panic_max:
-        # The result is a detection limit?
-        obj = api.get_object(brain_or_object)
-        if obj.isLowerDetectionLimit() and result == panic_max:
-            # The result is below the panic max
-            return False
-        return True
+    # Above the max panic?
+    if panic_max is not None:
+        if result >= panic_max:
+            return True
 
     # Not in panic
     return False
 
+
+def to_float_or_none(value):
+    """Returns the float if the value is floatable. Otherwise, returns None
+    """
+    if api.is_floatable(value):
+        return api.to_float(value)
+    return None
+
+
+def get_panic_tuple(analysis):
+    """Returns a tuple of min_panic and max_panic for the given analysis.
+    Resolves each item to None if not found or not valid for the analysis
+    """
+    panic_range = get_panic_range(analysis)
+    panic_min = panic_range.get("min_panic", None)
+    panic_max = panic_range.get("max_panic", None)
+    return tuple(map(to_float_or_none, [panic_min, panic_max]))
+
+
+def get_panic_range(analysis):
+    """Returns the panic range values for the passed in analysis
+    """
+    if not IRequestAnalysis.providedBy(analysis):
+        return analysis.getResultsRange() or ResultsRangeDict()
+
+    # We need to do this trick because when "Enable Sample specifications"
+    # is active, Add Sample form stores the results ranges directly to each
+    # analysis, but only considers min, max, warnmin and warnmax
+    request = analysis.getRequest()
+    specs = request.getSpecification()
+
+    # Get the specification values for all services
+    specs = specs.getResultsRange() or []
+
+    # Filter the spec values for our analysis
+    keyword = analysis.getKeyword()
+    results_range = filter(lambda rr: rr.get("keyword") == keyword, specs)
+    if results_range:
+        return results_range[0]
+
+    return ResultsRangeDict()
