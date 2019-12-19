@@ -1,0 +1,16 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="senaite.panic">
+
+  <!-- Panic Level Alert viewlet -->
+  <browser:viewlet
+    for="bika.lims.interfaces.IAnalysisRequest"
+    name=".panic_alert_viewlet"
+    class=".viewlets.PanicAlertViewlet"
+    manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+    template="templates/panic_alert_viewlet.pt"
+    permission="senaite.core.permissions.ManageAnalysisRequests"
+    layer="senaite.panic.interfaces.ISenaitePanicLayer" />
+
+</configure>
