@@ -17,3 +17,22 @@
 #
 # Copyright 2019 by it's authors.
 # Some rights reserved, see README and LICENSE.
+
+from senaite.panic import utils
+
+
+class ResultOutOfRangeAdapter(object):
+
+    def __init__(self, analysis):
+        self.analysis = analysis
+
+    def __call__(self, result, specification):
+        """Returns a {'out_of_range': True, 'acceptable': False} dict if the
+        result is in panic or {'out_of_range': False} if not in panic
+        """
+        if utils.is_in_panic(self.analysis, result, specification):
+            # Result of out range and unacceptable (in panic)
+            return dict(out_of_range=True, acceptable=False)
+
+        # Result in range (might be acceptable)
+        return dict(out_of_range=False)

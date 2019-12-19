@@ -4,6 +4,13 @@
 
   <include package="archetypes.schemaextender" />
 
+  <!-- Adapter for core's is_out_of_range -->
+  <adapter
+    name="senaite.panic.is_out_of_range"
+    for="bika.lims.interfaces.IAnalysis"
+    provides="bika.lims.interfaces.IResultOutOfRange"
+    factory=".ResultOutOfRangeAdapter" />
+
   <!-- Schema modifier for IAnalysisRequest -->
   <adapter
     name="senaite.panic.analysisrequest.schemamodifier"
@@ -24,5 +31,13 @@
          zope.interface.Interface"
     provides="senaite.core.listing.interfaces.IListingViewAdapter"
     factory=".listing.AnalysisSpecificationListingViewAdapter"/>
+
+  <!-- Adapter for Analyses listings. Place a severe warning icon next to the
+  result if in panic -->
+  <subscriber
+    for="bika.lims.browser.analyses.view.AnalysesView
+         zope.interface.Interface"
+    provides="senaite.core.listing.interfaces.IListingViewAdapter"
+    factory=".listing.AnalysesListingViewAdapter"/>
 
 </configure>

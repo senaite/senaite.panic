@@ -23,10 +23,12 @@ import collections
 from senaite.core.listing.interfaces import IListingView
 from senaite.core.listing.interfaces import IListingViewAdapter
 from senaite.panic import is_installed
-from senaite.panic import logger
 from senaite.panic import messageFactory as _
+from senaite.panic import utils
 from zope.component import adapts
 from zope.interface import implements
+
+from bika.lims import api
 
 
 class AnalysisSpecificationListingViewAdapter(object):
@@ -76,5 +78,37 @@ class AnalysisSpecificationListingViewAdapter(object):
 
         # Make the fields editable
         item["allow_edit"].extend(["min_panic", "max_panic"])
+
+        return item
+
+
+class AnalysesListingViewAdapter(object):
+    """Adapts the Analyses listing view by placing a severe warn icon when the
+    result for a given analysis is in panic
+    """
+    adapts(IListingView)
+    implements(IListingViewAdapter)
+
+    def __init__(self, listing, context):
+        self.listing = listing
+        self.context = context
+
+    def before_render(self):
+        # Don't do anything if senaite.panic is not installed
+        # This is necessary for subscribers
+        if not is_installed():
+            return
+
+    def folder_item(self, obj, item, index):
+        # Don't do anything if senaite.panic is not installed
+        # This is necessary for subscribers
+        if not is_installed():
+            return item
+
+        obj = api.get_object(obj)
+        if utils.is_in_panic(obj):
+            # Place a severe warning icon next to the result
+            img = utils.get_image("panic.png", title=_("Panic result"))
+            self.listing._append_html_element(item, element="Result", html=img)
 
         return item
