@@ -19,7 +19,7 @@
 
   <!-- Schema modifier for IAnalysisSpec -->
   <adapter
-    name="senaite.panic.analysisrequest.schemamodifier"
+    name="senaite.panic.analysisspec.schemamodifier"
     provides="archetypes.schemaextender.interfaces.ISchemaModifier"
     factory=".content.AnalysisSpecSchemaModifier" />
 
