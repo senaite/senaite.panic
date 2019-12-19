@@ -1,0 +1,17 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  i18n_domain="senaite.panic">
+
+  <!-- Schema modifier for IAnalysisSpec -->
+  <adapter factory=".content.AnalysisSpecSchemaModifier" />
+
+  <!-- Adapter for Analysis Specifications Widget's listing
+  Adds the columns `min_panic` and `max_panic` to the listing and makes their
+  values editable -->
+  <subscriber
+    for="bika.lims.browser.widgets.analysisspecificationwidget.AnalysisSpecificationView
+         zope.interface.Interface"
+    provides="senaite.core.listing.interfaces.IListingViewAdapter"
+    factory=".listing.AnalysisSpecificationListingViewAdapter"/>
+
+</configure>

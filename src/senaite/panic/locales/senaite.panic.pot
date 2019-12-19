@@ -1,0 +1,71 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-12-19 09:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: senaite.panic\n"
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:101
+msgid "'{}' value must be above '{}' or empty"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:92
+msgid "'{}' value must be below '{}' or empty"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:88
+msgid "'{}' value must be numeric or empty"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:102
+msgid "Max"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:47
+msgid "Max panic"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:93
+msgid "Min"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:46
+msgid "Min panic"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/listing.py:52
+msgid "Panic < Min"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/listing.py:55
+msgid "Panic > Max"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/profiles/default/__actionicons.xml
+#: senaite.panic/src/senaite/panic/profiles/default/__controlpanel.xml
+msgid "Panic Settings"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/configure.zcml:34
+msgid "Panic level alerts for SENAITE"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/configure.zcml:34
+msgid "SENAITE PANIC"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/configure.zcml:50
+msgid "SENAITE PANIC (uninstall)"
+msgstr ""

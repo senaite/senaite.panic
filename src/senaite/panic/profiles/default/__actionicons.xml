@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<action-icons xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+              i18n:domain="senaite.panic">
+
+  <action-icon
+    category="controlpanel"
+    action_id="panic-controlpanel"
+    title="Panic Settings"
+    i18n:attributes="title"
+    priority="0"
+    icon_expr="++resource++senaite.panic.static/icon.png"
+  />
+
+</action-icons>

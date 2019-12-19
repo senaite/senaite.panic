@@ -1,0 +1,52 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:five="http://namespaces.zope.org/five"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:i18n="http://namespaces.zope.org/i18n"
+  i18n_domain="senaite.panic">
+
+  <five:registerPackage package="." initialize=".initialize"/>
+
+  <!-- Register Translations -->
+  <i18n:registerTranslations directory="locales" />
+
+  <!-- Import senaite.core permissions -->
+  <include package="bika.lims" file="permissions.zcml" />
+
+  <!-- Package includes -->
+  <include package=".adapters"/>
+
+  <!-- Static resource directory -->
+  <browser:resourceDirectory
+    name="senaite.panic.static"
+    directory="static"
+    layer="senaite.panic.interfaces.ISenaitePanicLayer"/>
+
+  <!-- Default profile -->
+  <genericsetup:registerProfile
+    name="default"
+    title="SENAITE PANIC"
+    directory="profiles/default"
+    description="Panic level alerts for SENAITE"
+    pre_handler="senaite.panic.setuphandlers.pre_install"
+    post_handler="senaite.panic.setuphandlers.post_install"
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+  <!-- Generic Setup Handler -->
+  <genericsetup:importStep
+    name="senaite.panic.setuphandler"
+    title="SENAITE.PANIC Setup Handler"
+    description="Run various configuration actions"
+    handler="senaite.panic.setuphandlers.setup_handler" />
+
+  <!-- Uninstall profile -->
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="SENAITE PANIC (uninstall)"
+    directory="profiles/uninstall"
+    description="Panic level alerts for SENAITE"
+    post_handler="senaite.panic.setuphandlers.post_uninstall"
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+</configure>
