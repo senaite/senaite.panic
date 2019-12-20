@@ -3,7 +3,9 @@
       tal:define="
         plone_view  context/@@plone;
         portal_url  nocall:context/portal_url;
-        portal      portal_url/getPortalObject;"
+        portal      portal_url/getPortalObject;
+        sample_url  view/sample/absolute_url;
+        action_url  python:'/'.join([sample_url, 'panic_email_popup']);"
       i18n:domain="senaite.panic">
   <head>
   </head>
@@ -22,7 +24,7 @@
 
     <form id="analysisrequest_email_form"
           name="analysisrequest_email_form"
-          action="panic_email_popup"
+          tal:attributes="action action_url"
           method="POST"
           enctype="multipart/form-data">
 

@@ -20,22 +20,53 @@
 
 import collections
 
+from Products.Archetypes.Widget import BooleanWidget
 from Products.validation import validation
 from Products.validation.interfaces.IValidator import IValidator
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
+from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
 from senaite.panic import ISenaitePanicLayer
-from senaite.panic import is_installed
 from senaite.panic import messageFactory as _
 from zope.component import adapts
 from zope.interface import implements
 
 from bika.lims import api
+from bika.lims.fields import ExtBooleanField
 from bika.lims.interfaces import IAnalysisRequest
 from bika.lims.interfaces import IAnalysisSpec
 from bika.lims.validators import \
     AnalysisSpecificationsValidator as BaseValidator
 from bika.lims.validators import get_record_value
+
+
+class AnalysisRequestSchemaExtender(object):
+    """Schema Extender for Sample objects
+    """
+    adapts(IAnalysisRequest)
+    implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
+    # Modify the schema only if senaite.panic is installed
+    layer = ISenaitePanicLayer
+
+    custom_fields = [
+        # Stores if a panic email has been sent
+        ExtBooleanField(
+            "PanicEmailAlertSent",
+            default=False,
+            widget=BooleanWidget(
+                visible=False,
+            ),
+        ),
+    ]
+
+    def __init__(self, context):
+        self.context = context
+
+    def getOrder(self, schematas):
+        return schematas
+
+    def getFields(self):
+        return self.custom_fields
 
 
 def fiddle_panic_subfields(schema):

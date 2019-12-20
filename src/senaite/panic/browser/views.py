@@ -229,6 +229,9 @@ class EmailPopupView(BrowserView):
 
             return self.redirect(self.back_url, message, "warning")
 
+        # Store this fact in the Sample object
+        self.sample.getField("PanicEmailAlertSent").set(self.sample, True)
+
         message = _("Panic notification email sent")
         return self.redirect(self.back_url, message)
 

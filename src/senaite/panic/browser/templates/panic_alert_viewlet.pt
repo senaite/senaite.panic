@@ -17,16 +17,19 @@
       <p class="title">
         <span i18n:translate="">Some results exceeded the panic levels that
           may indicate an imminent life-threatening condition.</span>&nbsp;
-        <span tal:condition="python: view.panic_email_sent">
+        <tal:email_sent condition="python:view.panic_email_sent">
+        <br/>
+        <span i18n:translate="">
           An email alert has been sent already.
         </span>
+        </tal:email_sent>
       </p>
       <p tal:condition="python: not view.is_client_contact()">
         <a href="#" id="panic_email_popup"
            tal:attributes="class python: view.panic_email_sent and 'btn btn-warning' or 'btn btn-danger'"
-           i18n:translate="">Alert clinic about panic levels exceeded</a>
+           i18n:translate="">Alert client about panic levels exceeded</a>
         <input name="email_popup_uid" type="hidden" id="uid"
-               tal:attributes="value python: view.ar_uid"></input>
+               tal:attributes="value python: view.context.UID()"></input>
       </p>
     </div>
   </div>

@@ -39,8 +39,6 @@ class PanicAlertViewlet(ViewletBase):
         self.context = context
         self.request = request
         self.view = view
-        self.panic_email_sent = ""
-        self.ar_uid = ""
 
     def is_client_contact(self):
         """Returns whether the current user is a client contact
@@ -57,13 +55,14 @@ class PanicAlertViewlet(ViewletBase):
                 self._in_panic = utils.has_analyses_in_panic(self.context)
         return self._in_panic
 
+    @property
+    def panic_email_sent(self):
+        """Returns whether an email alert has been sent already
+        """
+        return self.context.getField("PanicEmailAlertSent").get(self.context)
+
     def render(self):
         if not self.in_panic:
             return ""
-        # Check if the Panic Level alert has been sent already
-        self.panic_email_sent = False
-        #self.panic_email_sent = api.get_field_value(instance=self.context,
-        #                                    field_name='PanicEmailAlertSent',
-        #                                    default=False)
-        self.ar_uid = api.get_uid(self.context)
+
         return self.template()
