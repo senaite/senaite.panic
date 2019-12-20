@@ -101,17 +101,21 @@ class EmailPopupView(BrowserView):
         setup = api.get_setup()
         laboratory = setup.laboratory
         lab_address = "\n".join(laboratory.getPrintAddress())
+        analyses = map(self.to_str, self.get_analyses_in_panic(self.sample))
+        analyses = "\n-".join(analyses)
 
         # TODO more mappings here (custom body)!
         return self.context.translate(
             "Some results from the Sample ${sample_id} "
             "exceeded the panic levels that may indicate an "
-            "imminent life-threatening condition."
+            "imminent life-threatening condition:"
+            "\n\n${analyses}"
             "\n\n${lab_address}",
             mapping={
-            'sample_id': api.get_id(self.sample),
-            'lab_address': lab_address
-        })
+                "sample_id": api.get_id(self.sample),
+                "analyses": analyses,
+                "lab_address": lab_address,}
+        )
 
     def get_client_contacts(self, sample):
         """Returns a list with the primary contacts from the client side
@@ -153,3 +157,11 @@ class EmailPopupView(BrowserView):
         return {'uid': api.get_uid(contact_obj),
                 'name': contact_obj.Title(),
                 'email': email}
+
+    def to_str(self, analysis):
+        """Returns a string representation of the analysis
+        """
+        return "{} ({}) {}".format(
+            api.get_title(analysis),
+            analysis.getKeyword(),
+            utils.get_formatted_panic(analysis)).strip()

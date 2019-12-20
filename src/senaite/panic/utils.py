@@ -123,3 +123,18 @@ def get_image(name, **kwargs):
     attr = render_html_attributes(**kwargs)
     html = '<img src="{}/++resource++senaite.panic.static/img/{}" {}/>'
     return html.format(portal_url, name, attr)
+
+
+def get_formatted_panic(analysis, panic_range=None):
+    """Returns a string representation of the panic with the result
+    """
+    panic = get_panic_tuple(analysis, panic_range)
+    result = analysis.getResult()
+    str_panic = ""
+    if result <= panic[0]:
+        str_panic = "<= {}".format(panic[0])
+    elif result >= panic[1]:
+        str_panic = ">= {}".format(panic[1])
+    if str_panic:
+        return "{} {}".format(str_panic, analysis.getUnit()).strip()
+    return ""
