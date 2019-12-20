@@ -1,8 +1,15 @@
 
-import plone.protect
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.utils import formataddr
+
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from email.Utils import formataddr
 from plone.app.layout.globals.interfaces import IViewView
 from plone.memoize import view
+from senaite.panic import logger
+from senaite.panic import messageFactory as _
 from senaite.panic import utils
 from zope.interface import implements
 
@@ -10,6 +17,7 @@ from bika.lims import api
 from bika.lims.api import user as api_user
 from bika.lims.browser import BrowserView
 from bika.lims.interfaces import IAnalysisRequest
+from bika.lims.utils import encode_header
 
 
 class EmailPopupView(BrowserView):
@@ -21,14 +29,20 @@ class EmailPopupView(BrowserView):
     _sample = _marker
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
-
         # If sample is not valid, do not render
         if self.sample is None:
             return "Context is not a sample or no sample uid specified"
 
+        # If the email for panic levels has been submitted, send the email
+        if "email_popup_submit" in self.request:
+            return self.send_panic_email()
+
         # Return the template
         return self.template()
+
+    @property
+    def back_url(self):
+        return api.get_url(self.sample)
 
     @property
     def sample(self):
@@ -110,7 +124,8 @@ class EmailPopupView(BrowserView):
             "exceeded the panic levels that may indicate an "
             "imminent life-threatening condition:"
             "\n\n${analyses}"
-            "\n\n${lab_address}",
+            "\n\n--"
+            "\n${lab_address}",
             mapping={
                 "sample_id": api.get_id(self.sample),
                 "analyses": analyses,
@@ -165,3 +180,49 @@ class EmailPopupView(BrowserView):
             api.get_title(analysis),
             analysis.getKeyword(),
             utils.get_formatted_panic(analysis)).strip()
+
+    def send_panic_email(self):
+        # Send an alert email
+        setup = api.get_setup()
+        laboratory = setup.laboratory
+        subject = self.request.get('subject')
+        to = self.request.get('to')
+        body = self.request.get('email_body')
+        body = "<br/>".join(body.split("\r\n"))
+        mime_msg = MIMEMultipart('related')
+        mime_msg['Subject'] = subject
+        mime_msg['From'] = formataddr(
+            (encode_header(laboratory.getName()),
+             laboratory.getEmailAddress()))
+        mime_msg['To'] = to
+        msg_txt = MIMEText(safe_unicode(body).encode('utf-8'), _subtype='html')
+        mime_msg.preamble = 'This is a multi-part MIME message.'
+        mime_msg.attach(msg_txt)
+        try:
+            host = api.get_tool("MailHost")
+            host.send(mime_msg.as_string(), immediate=True)
+        except Exception, msg:
+            sample_id = api.get_id(self.sample)
+            logger.error("Panic level email %s: %s" % (sample_id, str(msg)))
+            message = _("Unable to send an email to alert client "
+                        "that some results exceeded the panic levels")
+            message = "{}: {}".format(message, str(msg))
+
+            return self.redirect(self.back_url, message, "warning")
+
+        message = _("Panic notification email sent")
+        return self.redirect(self.back_url, message)
+
+    def redirect(self, redirect_url=None, message=None, level="info"):
+        """Redirect with a message
+        """
+        if redirect_url is None:
+            redirect_url = self.back_url
+        if message is not None:
+            self.add_status_message(message, level)
+        return self.request.response.redirect(redirect_url)
+
+    def add_status_message(self, message, level="info"):
+        """Set a portal status message
+        """
+        return self.context.plone_utils.addPortalMessage(message, level)

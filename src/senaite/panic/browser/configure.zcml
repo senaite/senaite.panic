@@ -17,9 +17,9 @@
   <!-- Panic Level Alert Email popup-view -->
   <browser:page
     for="*"
-    name="email_popup"
+    name="panic_email_popup"
     class=".views.EmailPopupView"
-    permission="zope.Public"
+    permission="senaite.core.permissions.ManageAnalysisRequests"
     layer="senaite.panic.interfaces.ISenaitePanicLayer" />
 
 </configure>

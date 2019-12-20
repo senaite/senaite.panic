@@ -22,7 +22,7 @@
         </span>
       </p>
       <p tal:condition="python: not view.is_client_contact()">
-        <a href="#" id="email_popup"
+        <a href="#" id="panic_email_popup"
            tal:attributes="class python: view.panic_email_sent and 'btn btn-warning' or 'btn btn-danger'"
            i18n:translate="">Alert clinic about panic levels exceeded</a>
         <input name="email_popup_uid" type="hidden" id="uid"
