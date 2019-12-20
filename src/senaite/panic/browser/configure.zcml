@@ -13,4 +13,13 @@
     permission="senaite.core.permissions.ManageAnalysisRequests"
     layer="senaite.panic.interfaces.ISenaitePanicLayer" />
 
+
+  <!-- Panic Level Alert Email popup-view -->
+  <browser:page
+    for="*"
+    name="email_popup"
+    class=".views.EmailPopupView"
+    permission="zope.Public"
+    layer="senaite.panic.interfaces.ISenaitePanicLayer" />
+
 </configure>

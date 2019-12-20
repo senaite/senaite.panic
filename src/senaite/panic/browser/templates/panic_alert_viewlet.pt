@@ -1,5 +1,9 @@
 <div tal:omit-tag=""
      tal:condition="python:view.in_panic"
+     tal:define="
+        plone_view  context/@@plone;
+        portal_url  nocall:context/portal_url;
+        portal      portal_url/getPortalObject;"
      i18n:domain="senaite.panic">
 
   <div class="visualClear"></div>
@@ -21,7 +25,15 @@
         <a href="#" id="email_popup"
            tal:attributes="class python: view.panic_email_sent and 'btn btn-warning' or 'btn btn-danger'"
            i18n:translate="">Alert clinic about panic levels exceeded</a>
+        <input name="email_popup_uid" type="hidden" id="uid"
+               tal:attributes="value python: view.ar_uid"></input>
       </p>
     </div>
   </div>
+
+  <!-- This is used to handle the EmailPopupView -->
+  <script
+      tal:attributes="src string:${portal_url}/++resource++senaite.panic.static/js/email_popup.js"
+      type="text/javascript"></script>
+
 </div>

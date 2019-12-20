@@ -14,7 +14,7 @@ in categories. In Plone 4, only "Member", "Plone" and "Products" are supported.
     appId="senaite.panic"
     category="Products"
     condition_expr=""
-    icon_expr="string:++resource++senaite.panic.static/icon.png"
+    icon_expr="string:++resource++senaite.panic.static/img/icon.png"
     url_expr="string:${portal_url}/@@panic-controlpanel"
     visible="True"
     i18n:domain="senaite.panic"

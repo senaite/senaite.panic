@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:define="
+        plone_view  context/@@plone;
+        portal_url  nocall:context/portal_url;
+        portal      portal_url/getPortalObject;"
+      i18n:domain="senaite.panic">
+  <head>
+  </head>
+  <body>
+
+    <h1>
+      <img src="" tal:attributes="src string:${portal_url}/++resource++bika.lims.images/warning_big.png"/>
+      <span i18n:translate="">Alert client</span>
+    </h1>
+
+    <p i18n:translate="">
+        Some values exceeded the panic levels. Send an email to the
+        clinic or close this window if you want to re-test to confirm the
+        panic value.
+    </p>
+
+    <form id="analysisrequest_email_form"
+          name="analysisrequest_email_form"
+          method="POST"
+          enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="subject" i18n:translate="">Subject</label>
+        <input type="text" class="form-control required"
+                tal:attributes="id string:subject;
+                                name string:subject;
+                                value view/subject;
+                                size string:35;"/>
+      </div>
+      <div class="form-group">
+        <label for="to" i18n:translate="">To</label>
+        <input type="text" class="form-control required"
+               aria-describedby="emailHelp"
+                 tal:attributes="id string:to;
+                                 name string:to;
+                                 value view/formatted_recipients;
+                                 size string:35;"/>
+      </div>
+      <div class="form-group">
+        <label for="body" i18n:translate="">Body</label>
+        <textarea class="form-control required" name="email_body"
+                  id="email_body"
+                tal:content="view/body" cols="42" rows="8"></textarea>
+      </div>
+      <input class="btn btn-primary"
+             type="submit" value="Send" name="email_popup_submit"
+             id="email_popup_submit" />
+    </form>
+</body>
+</html>
