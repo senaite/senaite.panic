@@ -80,35 +80,11 @@ def get_panic_tuple(analysis, panic_range=None):
     """
     if panic_range is None:
         # Get the panic range directly from the analysis
-        panic_range = get_panic_range(analysis)
+        panic_range = analysis.getResultsRange() or ResultsRangeDict()
 
     panic_min = panic_range.get("min_panic", None)
     panic_max = panic_range.get("max_panic", None)
     return tuple(map(to_float_or_none, [panic_min, panic_max]))
-
-
-def get_panic_range(analysis):
-    """Returns the panic range values for the passed in analysis
-    """
-    if not IRequestAnalysis.providedBy(analysis):
-        return analysis.getResultsRange() or ResultsRangeDict()
-
-    # We need to do this trick because when "Enable Sample specifications"
-    # is active, Add Sample form stores the results ranges directly to each
-    # analysis, but only considers min, max, warnmin and warnmax
-    request = analysis.getRequest()
-    specs = request.getSpecification()
-
-    # Get the specification values for all services
-    specs = specs and specs.getResultsRange() or []
-
-    # Filter the spec values for our analysis
-    keyword = analysis.getKeyword()
-    results_range = filter(lambda rr: rr.get("keyword") == keyword, specs)
-    if results_range:
-        return results_range[0]
-
-    return ResultsRangeDict()
 
 
 def get_image(name, **kwargs):
