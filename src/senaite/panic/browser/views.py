@@ -207,14 +207,14 @@ class EmailPopupView(BrowserView):
         subject = self.request.get('subject')
         to = self.request.get('to')
         body = self.request.get('email_body')
-        body = "<br/>".join(body.split("\r\n"))
+        hbody = "<br/>".join(body.split("\r\n"))
         mime_msg = MIMEMultipart('related')
         mime_msg['Subject'] = subject
         mime_msg['From'] = formataddr(
             (encode_header(laboratory.getName()),
              laboratory.getEmailAddress()))
         mime_msg['To'] = to
-        msg_txt = MIMEText(safe_unicode(body).encode('utf-8'), _subtype='html')
+        msg_txt = MIMEText(safe_unicode(hbody).encode('utf-8'), _subtype='html')
         mime_msg.preamble = 'This is a multi-part MIME message.'
         mime_msg.attach(msg_txt)
         try:
@@ -231,6 +231,18 @@ class EmailPopupView(BrowserView):
 
         # Store this fact in the Sample object
         self.sample.getField("PanicEmailAlertSent").set(self.sample, True)
+
+        # Store the email text in remarks
+        subject = _("Subject: {}").format(subject)
+        msg_from = _("From: {}").format(mime_msg["From"])
+        msg_to = _("To: {}").format(to)
+
+        # Markdown.. why not?
+        pre = "\n    "
+        title = _("The following panic level email has been sent:")
+        body = pre.join(body.split("\r\n"))
+        remarks = pre.join([title, "", subject, msg_from, msg_to, "---", body])
+        self.sample.setRemarks(remarks)
 
         message = _("Panic notification email sent")
         return self.redirect(self.back_url, message)
