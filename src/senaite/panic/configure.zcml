@@ -50,4 +50,12 @@
     post_handler="senaite.panic.setuphandlers.post_uninstall"
     provides="Products.GenericSetup.interfaces.EXTENSION" />
 
+  <!-- Senaite Panic Control panel -->
+  <browser:page
+    name="panic-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".controlpanel.PanicControlPanelForm"
+    permission="senaite.core.permissions.ManageBika"
+    layer="senaite.panic.interfaces.ISenaitePanicLayer" />
+
 </configure>

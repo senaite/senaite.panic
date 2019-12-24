@@ -138,17 +138,14 @@ class EmailPopupView(BrowserView):
         analyses = "\n-".join(analyses)
 
         # TODO more mappings here (custom body)!
+        email_body = api.get_registry_record("senaite.panic.email_body")
         return self.context.translate(
-            "Some results from the Sample ${sample_id} "
-            "exceeded the panic levels that may indicate an "
-            "imminent life-threatening condition:"
-            "\n\n${analyses}"
-            "\n\n--"
-            "\n${lab_address}",
+            email_body,
             mapping={
                 "sample_id": api.get_id(self.sample),
                 "analyses": analyses,
-                "lab_address": lab_address,}
+                "lab_address": lab_address,
+            }
         )
 
     def get_client_contacts(self, sample):
