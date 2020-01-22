@@ -123,9 +123,15 @@ class EmailPopupView(BrowserView):
     def subject(self):
         """Returns the subject of the email
         """
-        txt = "Some results from Sample ${sample_id} exceeded panic range"
-        return self.context.translate(txt, mapping={
-                  "sample_id": api.get_id(self.sample), })
+        email_subject = api.get_registry_record("senaite.panic.email_subject")
+        client = self.sample.getClient()
+        return self.context.translate(
+            email_subject,
+            mapping={
+                "sample_id": api.get_id(self.sample),
+                "client_id": client.getClientID(),
+                "client_sample_id": self.sample.getClientSampleID(),
+            })
 
     @property
     def body(self):
@@ -138,18 +144,18 @@ class EmailPopupView(BrowserView):
         analyses = "\n-".join(analyses)
 
         # TODO more mappings here (custom body)!
+        email_body = api.get_registry_record("senaite.panic.email_body")
+        client = self.sample.getClient()
         return self.context.translate(
-            "Some results from the Sample ${sample_id} "
-            "exceeded the panic levels that may indicate an "
-            "imminent life-threatening condition:"
-            "\n\n${analyses}"
-            "\n\n--"
-            "\n${lab_address}",
+            email_body,
             mapping={
                 "sample_id": api.get_id(self.sample),
                 "analyses": analyses,
-                "lab_address": lab_address,}
-        )
+                "lab_address": lab_address,
+                "client_id": client.getClientID(),
+                "client_sample_id": self.sample.getClientSampleID(),
+                "sample_url": api.get_url(self.sample),
+            })
 
     def get_client_contacts(self, sample):
         """Returns a list with the primary contacts from the client side

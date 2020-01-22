@@ -15,8 +15,7 @@
       </button>
       <strong>Warning</strong>
       <p class="title">
-        <span i18n:translate="">Some results exceeded the panic levels that
-          may indicate an imminent life-threatening condition.</span>&nbsp;
+        <span i18n:translate="">Some results exceeded the panic levels</span>&nbsp;
         <tal:email_sent condition="python:view.panic_email_sent">
         <br/>
         <span i18n:translate="">
