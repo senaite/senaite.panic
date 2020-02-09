@@ -28,7 +28,7 @@
            tal:attributes="class python: view.panic_email_sent and 'btn btn-warning' or 'btn btn-danger'"
            i18n:translate="">Alert client about panic levels exceeded</a>
         <input name="email_popup_uid" type="hidden" id="uid"
-               tal:attributes="value python: view.context.UID()"></input>
+               tal:attributes="value python: view.context.UID()"/>
       </p>
     </div>
   </div>

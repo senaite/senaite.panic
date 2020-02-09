@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-12-19 09:36+0000\n"
+"POT-Creation-Date: 2020-02-09 20:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,132 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: senaite.panic\n"
 
-#: senaite.panic/src/senaite/panic/adapters/content.py:101
+#: senaite.panic/src/senaite/panic/adapters/content.py:159
 msgid "'{}' value must be above '{}' or empty"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/content.py:92
+#: senaite.panic/src/senaite/panic/adapters/content.py:150
 msgid "'{}' value must be below '{}' or empty"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/content.py:88
+#: senaite.panic/src/senaite/panic/adapters/content.py:146
 msgid "'{}' value must be numeric or empty"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/content.py:102
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_email.pt:16
+msgid "Alert client"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_viewlet.pt:27
+msgid "Alert client about panic levels exceeded"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_viewlet.pt:21
+msgid "An email alert has been sent already."
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_email.pt:49
+msgid "Body"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/controlpanel.py:43
+msgid "Email alert body template"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/controlpanel.py:34
+msgid "Email alert subject"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/content.py:160
 msgid "Max"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/content.py:47
+#: senaite.panic/src/senaite/panic/adapters/content.py:76
 msgid "Max panic"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/content.py:93
+#: senaite.panic/src/senaite/panic/adapters/content.py:151
 msgid "Min"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/content.py:46
+#: senaite.panic/src/senaite/panic/adapters/content.py:75
 msgid "Min panic"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/listing.py:52
+#: senaite.panic/src/senaite/panic/adapters/listing.py:54
 msgid "Panic < Min"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/listing.py:55
+#: senaite.panic/src/senaite/panic/adapters/listing.py:57
 msgid "Panic > Max"
 msgstr ""
 
 #: senaite.panic/src/senaite/panic/profiles/default/__actionicons.xml
-#: senaite.panic/src/senaite/panic/profiles/default/__controlpanel.xml
+#: senaite.panic/src/senaite/panic/profiles/default/controlpanel.xml
 msgid "Panic Settings"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/configure.zcml:34
+#: senaite.panic/src/senaite/panic/configure.zcml:35
 msgid "Panic level alerts for SENAITE"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/configure.zcml:34
+#: senaite.panic/src/senaite/panic/browser/views.py:241
+msgid "Panic notification email sent"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/adapters/listing.py:111
+msgid "Panic result"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/configure.zcml:35
 msgid "SENAITE PANIC"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/configure.zcml:50
+#: senaite.panic/src/senaite/panic/configure.zcml:51
 msgid "SENAITE PANIC (uninstall)"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/controlpanel.py:58
+msgid "SENAITE PANIC Settings"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_viewlet.pt:18
+msgid "Some results exceeded the panic levels"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/controlpanel.py:38
+msgid "Some results from Sample ${sample_id} exceeded panic range"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/controlpanel.py:48
+msgid "Some results from the Sample ${sample_id} exceeded the panic levels:
+
+${analyses}
+
+--
+${lab_address}"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_email.pt:19
+msgid "Some values exceeded the panic levels. Send an email to the clinic or close this window if you want to re-test to confirm the panic value."
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_email.pt:32
+msgid "Subject"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/controlpanel.py:44
+msgid "Template text for the panic alert email's body. The accepted wildcards are: ${analyses}, ${lab_address}, ${sample_id}, {client_sample_id}, ${client_id} and ${sample_url}"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/controlpanel.py:35
+msgid "Template text for the panic alert email's subject. The accepted wildcards are: ${sample_id}, {client_sample_id} and ${client_id}"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/templates/panic_alert_email.pt:40
+msgid "To"
+msgstr ""
+
+#: senaite.panic/src/senaite/panic/browser/views.py:232
+msgid "Unable to send an email to alert client that some results exceeded the panic levels"
 msgstr ""
