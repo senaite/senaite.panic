@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[senaite-panic]
+[senaite-panic.senaite]
 file_filter = <lang>/LC_MESSAGES/senaite.panic.po
 host = https://www.transifex.com
 source_file = senaite.panic.pot
