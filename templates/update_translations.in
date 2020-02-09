@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BASE=${buildout:directory}
-SRC=$BASE/src/senaite.panic
+SRC=$BASE/src/senaite/panic
 I18N=$BASE/bin/i18ndude
 LOCALES=$SRC/locales
 EXCLUDE="build node_modules"
