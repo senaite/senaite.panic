@@ -21,9 +21,9 @@ About
 =====
 
 This package enables panic level alerts in SENAITE by means of the integration
-of panic ranges in Analysis Specifications. Two additional fields `minpanic` 
-and `maxpanic` are added, so when the result of an analysis falls outside the
-valid range and below `minpanic` or `maxpanic`, a warning message is displayed
+of panic ranges in Analysis Specifications. Two additional fields *min_panic*
+and *max_panic* are added, so when the result of an analysis falls outside the
+valid range and below *min_panic* or *max_panic*, a warning message is displayed
 next to the analysis and an informative panel in Sample's view as well. From
 this informative panel, lab manager can easily send an e-mail notification to
 the client contact, as well as to other key personnel.
@@ -32,7 +32,7 @@ the client contact, as well as to other key personnel.
 Installation
 ============
 
-Add `senaite.panic` in the eggs section of your buildout:
+Add *senaite.panic* in the eggs section of your buildout:
 
 .. code-block::
 
@@ -41,7 +41,7 @@ Add `senaite.panic` in the eggs section of your buildout:
       senaite.panic
 
 
-and run `bin/buildout`. Install `senaite.panic` add-on in "Setup > Add-ons".
+and run *bin/buildout*. Install *senaite.panic* add-on on "Setup > Add-ons".
 
 Contribute
 ==========
@@ -75,7 +75,7 @@ Feedback and support
 License
 =======
 
-**SENAITE.PANIC** Copyright (C) 2019 Senaite Foundation
+**SENAITE.PANIC** Copyright (C) 2019-2020 RIDING BYTES & NARALABS
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the `GNU General Public License version 2
