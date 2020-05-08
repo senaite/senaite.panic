@@ -69,6 +69,7 @@ class AnalysisSpecificationListingViewAdapter(object):
         if not is_installed():
             return item
 
+        obj = api.get_object(obj)
         keyword = obj.getKeyword()
         spec = self.listing.specification.get(keyword, {})
 
