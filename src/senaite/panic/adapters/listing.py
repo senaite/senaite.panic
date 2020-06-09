@@ -61,7 +61,8 @@ class AnalysisSpecificationListingViewAdapter(object):
 
         # Apply the columns to all review_states
         keys = self.listing.columns.keys()
-        map(lambda rv: rv.update({"columns": keys}), self.listing.review_states)
+        map(lambda rv: rv.update(
+            {"columns": keys}), self.listing.review_states)
 
     def folder_item(self, obj, item, index):
         # Don't do anything if senaite.panic is not installed
