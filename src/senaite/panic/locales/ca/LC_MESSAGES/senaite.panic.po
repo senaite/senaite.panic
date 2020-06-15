@@ -1,135 +1,140 @@
+#
+# Translators:
+# Jordi Puiggené <jpuiggene@naralabs.com>, 2020
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-02-09 20:54+0000\n"
+"Last-Translator: Jordi Puiggené <jpuiggene@naralabs.com>, 2020\n"
+"Language-Team: Catalan (https://www.transifex.com/senaite/teams/107218/ca/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+"Language: ca\n"
 
 #: senaite/panic/adapters/content.py:159
 msgid "'{}' value must be above '{}' or empty"
-msgstr ""
+msgstr "El valor per '{}' ha d'estar buit o ser superior a '{}'"
 
 #: senaite/panic/adapters/content.py:150
 msgid "'{}' value must be below '{}' or empty"
-msgstr ""
+msgstr "El valor per a '{}' ha d'estar buit o ser inferior a '{}'"
 
 #: senaite/panic/adapters/content.py:146
 msgid "'{}' value must be numeric or empty"
-msgstr ""
+msgstr "El valor per a '{}' ha d'estar buit o ser numèric"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:16
 msgid "Alert client"
-msgstr ""
+msgstr "Envia una notificació al client"
 
 #: senaite/panic/browser/templates/panic_alert_viewlet.pt:27
 msgid "Alert client about panic levels exceeded"
-msgstr ""
+msgstr "Envia una notificació al client indicant que alguns resultats sobrepassen els nivells crítics"
 
 #: senaite/panic/browser/templates/panic_alert_viewlet.pt:21
 msgid "An email alert has been sent already."
-msgstr ""
+msgstr "Ja s'ha enviat una notificació amb anterioritat indicant que alguns resultats sobrepassen els nivells crítics"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:49
 msgid "Body"
-msgstr ""
+msgstr "Cos del missatge"
 
 #: senaite/panic/controlpanel.py:43
 msgid "Email alert body template"
-msgstr ""
+msgstr "Cos del missatge de la plantilla de correu electrònic"
 
 #: senaite/panic/controlpanel.py:34
 msgid "Email alert subject"
-msgstr ""
+msgstr "Assumpte del missatge de la plantilla de correu electrònic"
 
 #: senaite/panic/adapters/content.py:160
 msgid "Max"
-msgstr ""
+msgstr "Màx"
 
 #: senaite/panic/adapters/content.py:76
 msgid "Max panic"
-msgstr ""
+msgstr "Nivell crític superior"
 
 #: senaite/panic/adapters/content.py:151
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 #: senaite/panic/adapters/content.py:75
 msgid "Min panic"
-msgstr ""
+msgstr "Nivell crític inferior"
 
 #: senaite/panic/adapters/listing.py:54
 msgid "Panic < Min"
-msgstr ""
+msgstr "Nivell crític inferior"
 
 #: senaite/panic/adapters/listing.py:57
 msgid "Panic > Max"
-msgstr ""
+msgstr "Nivell crític superior"
 
 #: senaite/panic/profiles/default/controlpanel.xml
 msgid "Panic Settings"
-msgstr ""
+msgstr "Configuració de les alertes sobre resultats que sobrepassen els nivells crítics"
 
 #: senaite/panic/configure.zcml:35
 msgid "Panic level alerts for SENAITE"
-msgstr ""
+msgstr "Extensió de SENAITE per a l'enviament d'alertes quan els resultats sobrepassen els nivells crítics"
 
 #: senaite/panic/browser/views.py:241
 msgid "Panic notification email sent"
-msgstr ""
+msgstr "La notificació per correu electrònic indicant que alguns resultats sobrepassen els nivells crítics s'ha enviat satisfactòriament"
 
 #: senaite/panic/adapters/listing.py:112
 msgid "Panic result"
-msgstr ""
+msgstr "El resultat sobrepassa el nivell crític"
 
 #: senaite/panic/configure.zcml:35
 msgid "SENAITE PANIC"
-msgstr ""
+msgstr "SENAITE PANIC"
 
 #: senaite/panic/configure.zcml:51
 msgid "SENAITE PANIC (uninstall)"
-msgstr ""
+msgstr "SENAITE PANIC (desinstal·la)"
 
 #: senaite/panic/controlpanel.py:58
 msgid "SENAITE PANIC Settings"
-msgstr ""
+msgstr "Configuració de SENAITE PANIC"
 
 #: senaite/panic/browser/templates/panic_alert_viewlet.pt:18
 msgid "Some results exceeded the panic levels"
-msgstr ""
+msgstr "Alguns resultats sobrepassen els nivells crítics"
 
 #: senaite/panic/controlpanel.py:38
 msgid "Some results from Sample ${sample_id} exceeded panic range"
-msgstr ""
+msgstr "Alguns dels resultats obtinguts per a la mostra ${sample_id} sobrepassen els nivells considerats crítics"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:19
 msgid "Some values exceeded the panic levels. Send an email to the clinic or close this window if you want to re-test to confirm the panic value."
-msgstr ""
+msgstr "Alguns resultats sobrepassen els nivells crítics. Envieu un correu electrònic al client o tanqueu aquesta finestra si voleu efectuar un test confirmatiu"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:32
 msgid "Subject"
-msgstr ""
+msgstr "Assumpte"
 
 #: senaite/panic/controlpanel.py:44
 msgid "Template text for the panic alert email's body. The accepted wildcards are: ${analyses}, ${lab_address}, ${sample_id}, {client_sample_id}, ${client_id} and ${sample_url}"
-msgstr ""
+msgstr "Cos del missatge de la plantilla de correu electrònic per a les notificacions indicant que els resultats sobrepassen els nivells crítics. Les següents variables estan permeses, i seran substituïdes automàticament pels seus valors corresponents: ${analyses}, ${lab_address}, ${sample_id}, ${client_sample_id}, ${client_id} y ${sample_url}"
 
 #: senaite/panic/controlpanel.py:35
 msgid "Template text for the panic alert email's subject. The accepted wildcards are: ${sample_id}, {client_sample_id} and ${client_id}"
-msgstr ""
+msgstr "Assumpte del missatge de la plantilla de correu electrònic per a les notificacions indicant que els resultats sobrepassen els nivells crítics. Les següents variables estan permeses, i seran substituïdes automàticament pels seus valors corresponents: ${sample_id}, ${client_sample_id} y ${client_id}"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:40
 msgid "To"
-msgstr ""
+msgstr "Destinatari"
 
 #: senaite/panic/browser/views.py:232
 msgid "Unable to send an email to alert client that some results exceeded the panic levels"
-msgstr ""
+msgstr "No s'ha pogut enviar al client la notificació per correu electrònic indicant que alguns resultats sobrepassen els nivells crítics"
