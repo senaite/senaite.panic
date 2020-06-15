@@ -110,7 +110,7 @@ class AnalysesListingViewAdapter(object):
         obj = api.get_object(obj)
         if utils.is_in_panic(obj):
             # Place a severe warning icon next to the result
-            img = utils.get_image("panic", title=_("Panic result"))
+            img = utils.get_image("panic.png", title=_("Panic result"))
             self.listing._append_html_element(item, element="Result", html=img)
 
         return item

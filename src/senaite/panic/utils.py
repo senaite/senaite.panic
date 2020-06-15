@@ -97,7 +97,7 @@ def get_image(name, **kwargs):
         return ""
     portal_url = api.get_url(api.get_portal())
     attr = render_html_attributes(**kwargs)
-    html = '<img height="16" src="{}/senaite_theme/icon/{}" {}/>'
+    html = '<img src="{}/++resource++senaite.panic.static/img/{}" {}/>'
     return html.format(portal_url, name, attr)
 
 
