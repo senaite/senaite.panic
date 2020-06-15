@@ -37,6 +37,7 @@ from bika.lims.api import user as api_user
 from bika.lims.browser import BrowserView
 from bika.lims.interfaces import IAnalysisRequest
 from bika.lims.utils import encode_header
+from bika.lims.utils import t as _t
 
 
 class EmailPopupView(BrowserView):
@@ -123,15 +124,14 @@ class EmailPopupView(BrowserView):
     def subject(self):
         """Returns the subject of the email
         """
-        email_subject = api.get_registry_record("senaite.panic.email_subject")
         client = self.sample.getClient()
-        return self.context.translate(
-            email_subject,
-            mapping={
-                "sample_id": api.get_id(self.sample),
-                "client_id": client.getClientID(),
-                "client_sample_id": self.sample.getClientSampleID(),
-            })
+        email_subject = api.get_registry_record("senaite.panic.email_subject")
+        mapping = {
+            "sample_id": api.get_id(self.sample),
+            "client_id": client.getClientID(),
+            "client_sample_id": self.sample.getClientSampleID(),
+        }
+        return _t(_(email_subject, mapping=mapping))
 
     @property
     def body(self):
@@ -142,25 +142,25 @@ class EmailPopupView(BrowserView):
         lab_address = "\n".join(laboratory.getPrintAddress())
         analyses = map(self.to_str, self.get_analyses_in_panic(self.sample))
         analyses = "\n-".join(analyses)
+        client = self.sample.getClient()
 
         # TODO more mappings here (custom body)!
         email_body = api.get_registry_record("senaite.panic.email_body")
-        client = self.sample.getClient()
-        return self.context.translate(
-            email_body,
-            mapping={
-                "sample_id": api.get_id(self.sample),
-                "analyses": analyses,
-                "lab_address": lab_address,
-                "client_id": client.getClientID(),
-                "client_sample_id": self.sample.getClientSampleID(),
-                "sample_url": api.get_url(self.sample),
-            })
+        mapping = {
+            "sample_id": api.get_id(self.sample),
+            "analyses": analyses,
+            "lab_address": lab_address,
+            "client_id": client.getClientID(),
+            "client_sample_id": self.sample.getClientSampleID(),
+            "sample_url": api.get_url(self.sample),
+        }
+        return _t(_(email_body, mapping=mapping))
 
     def get_client_contacts(self, sample):
         """Returns a list with the primary contacts from the client side
         """
-        contacts = [sample.getContact(), sample.getCCContact()]
+        contacts = sample.getCCContact() or []
+        contacts.insert(0, sample.getContact())
         return filter(None, contacts)
 
     def get_other_contacts(self, sample):
