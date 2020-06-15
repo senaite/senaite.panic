@@ -160,7 +160,8 @@ class EmailPopupView(BrowserView):
     def get_client_contacts(self, sample):
         """Returns a list with the primary contacts from the client side
         """
-        contacts = [sample.getContact(), sample.getCCContact()]
+        contacts = sample.getCCContact() or []
+        contacts.insert(0, sample.getContact())
         return filter(None, contacts)
 
     def get_other_contacts(self, sample):
