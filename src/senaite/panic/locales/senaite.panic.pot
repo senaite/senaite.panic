@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-02-09 20:55+0000\n"
+"POT-Creation-Date: 2020-06-15 22:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,7 +77,6 @@ msgstr ""
 msgid "Panic > Max"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/profiles/default/__actionicons.xml
 #: senaite.panic/src/senaite/panic/profiles/default/controlpanel.xml
 msgid "Panic Settings"
 msgstr ""
@@ -90,7 +89,7 @@ msgstr ""
 msgid "Panic notification email sent"
 msgstr ""
 
-#: senaite.panic/src/senaite/panic/adapters/listing.py:111
+#: senaite.panic/src/senaite/panic/adapters/listing.py:112
 msgid "Panic result"
 msgstr ""
 
