@@ -1,5 +1,5 @@
 <div tal:omit-tag=""
-     tal:condition="python:view.in_panic"
+     tal:condition="python:view.available()"
      tal:define="
         plone_view  context/@@plone;
         portal_url  nocall:context/portal_url;

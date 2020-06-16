@@ -24,6 +24,8 @@ from senaite.panic import utils
 
 from bika.lims import api
 from bika.lims.interfaces import IAnalysisRequest
+from bika.lims.permissions import ViewResults
+from bika.lims.utils import check_permission
 
 
 class PanicAlertViewlet(ViewletBase):
@@ -44,6 +46,14 @@ class PanicAlertViewlet(ViewletBase):
         """Returns whether the current user is a client contact
         """
         return api.get_current_client() is not None
+
+    def available(self):
+        """Returns whether the viewlet has to be rendered
+        """
+        # Do not display if user does not have ViewResults permission
+        if check_permission(ViewResults, api.get_object(self.context)):
+            return self.in_panic
+        return False
 
     @property
     def in_panic(self):
