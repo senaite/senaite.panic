@@ -20,6 +20,7 @@
 
 import collections
 
+from bika.lims.permissions import ViewResults
 from senaite.core.listing.interfaces import IListingView
 from senaite.core.listing.interfaces import IListingViewAdapter
 from senaite.panic import is_installed
@@ -105,6 +106,11 @@ class AnalysesListingViewAdapter(object):
         # This is necessary for subscribers
         if not is_installed():
             return item
+
+        if not self.listing.has_permission(ViewResults, obj):
+            # Users without permissions to see the result should not be able
+            # to see if the result is in panic neither
+            return
 
         obj = api.get_object(obj)
         if utils.is_in_panic(obj):
