@@ -35,7 +35,7 @@
   <subscriber
     for="bika.lims.browser.widgets.analysisspecificationwidget.AnalysisSpecificationView
          zope.interface.Interface"
-    provides="senaite.core.listing.interfaces.IListingViewAdapter"
+    provides="senaite.app.listing.interfaces.IListingViewAdapter"
     factory=".listing.AnalysisSpecificationListingViewAdapter"/>
 
   <!-- Adapter for Analyses listings. Place a severe warning icon next to the
@@ -43,7 +43,7 @@
   <subscriber
     for="bika.lims.browser.analyses.view.AnalysesView
          zope.interface.Interface"
-    provides="senaite.core.listing.interfaces.IListingViewAdapter"
+    provides="senaite.app.listing.interfaces.IListingViewAdapter"
     factory=".listing.AnalysesListingViewAdapter"/>
 
 </configure>

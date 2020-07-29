@@ -21,8 +21,8 @@
 import collections
 
 from bika.lims.permissions import ViewResults
-from senaite.core.listing.interfaces import IListingView
-from senaite.core.listing.interfaces import IListingViewAdapter
+from senaite.app.listing.interfaces import IListingView
+from senaite.app.listing.interfaces import IListingViewAdapter
 from senaite.panic import is_installed
 from senaite.panic import messageFactory as _
 from senaite.panic import utils
