@@ -66,11 +66,11 @@ msgstr ""
 msgid "Min panic"
 msgstr ""
 
-#: senaite/panic/adapters/listing.py:54
+#: senaite/panic/adapters/listing.py:55
 msgid "Panic < Min"
 msgstr ""
 
-#: senaite/panic/adapters/listing.py:57
+#: senaite/panic/adapters/listing.py:58
 msgid "Panic > Max"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Panic notification email sent"
 msgstr ""
 
-#: senaite/panic/adapters/listing.py:112
+#: senaite/panic/adapters/listing.py:118
 msgid "Panic result"
 msgstr ""
 
