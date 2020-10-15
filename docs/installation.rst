@@ -3,11 +3,11 @@ Installation
 
 Add ``senaite.panic`` in the eggs section of your buildout:
 
-.. code-block::
+.. code-block:: ini
 
-  eggs =
-      senaite.lims
-      senaite.panic
+    eggs =
+        senaite.lims
+        senaite.panic
 
 
 Run ``bin/buildout`` afterwards.

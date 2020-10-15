@@ -17,7 +17,7 @@ through "Site Setup" view, "Add-on Configuration" section:
 http://localhost:8080/senaite/@@panic-controlpanel
 
 .. image:: static/panic_settings.png
-  :width: 401
+  :width: 640
   :alt: Panic settings view
 
 From this view you can configure the subject and e-mail to use for notifications
@@ -35,7 +35,7 @@ Specifications" view and either choose one or create a new one. In the
 and "Panic > Max" and type the desired values.
 
 .. image:: static/adding_panic_levels.png
-  :width: 401
+  :width: 640
   :alt: Assignment of panic levels to an analysis through Specifications
 
 
@@ -47,7 +47,7 @@ the "Max panic" value set in the specifications, the system displays a red alert
 icon next to the result:
 
 .. image:: static/result_in_panic.png
-  :width: 401
+  :width: 640
   :alt: Result in panic
 
 
@@ -59,14 +59,14 @@ sample view prompting the user to send an e-mail notification to the client
 contact the sample is assigned to:
 
 .. image:: static/viewlet_notification.png
-  :width: 401
+  :width: 640
   :alt: Panic viewlet notification
 
 When the button is clicked, an e-mail form is displayed and auto-filled with
 the subject and template created in the Panic Settings view:
 
 .. image:: static/send_email.png
-  :width: 401
+  :width: 640
   :alt: Panic e-mail form
 
 
