@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = "1.0.1"
+version = "2.0.0"
 
 setup(
     name="senaite.panic",
@@ -27,7 +27,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        "senaite.lims>=1.3.3",
+        "senaite.lims>=2.0.0rc1",
         "requests",
     ],
     extras_require={

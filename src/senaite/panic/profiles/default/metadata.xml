@@ -9,11 +9,10 @@ this add-on own profile.
 -->
 
 <metadata>
-  <version>1.0.1</version>
+  <version>2.0.0</version>
 
   <!-- Be sure to install the following dependencies if not yet installed -->
   <dependencies>
-    <dependency>profile-senaite.panic:default</dependency>
     <dependency>profile-senaite.lims:default</dependency>
   </dependencies>
 
