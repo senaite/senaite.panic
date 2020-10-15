@@ -58,5 +58,5 @@ class PanicControlPanelForm(RegistryEditForm):
     label = _("SENAITE PANIC Settings")
 
 
-QueueControlPanelView = layout.wrap_form(PanicControlPanelForm,
+PanicControlPanelView = layout.wrap_form(PanicControlPanelForm,
                                          ControlPanelFormWrapper)
