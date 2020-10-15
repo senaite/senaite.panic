@@ -172,6 +172,7 @@ class EmailPopupView(BrowserView):
         # Get the responsibles of departments
         in_panic = self.get_analyses_in_panic(sample)
         departments = map(lambda an: an.getDepartment(), in_panic)
+        departments = filter(None, departments)
         managers = map(lambda dept: dept.getManager(), departments)
         for manager in managers:
             if manager:
