@@ -7,6 +7,9 @@ Panic level alerts for SENAITE LIMS
 .. image:: https://img.shields.io/travis/senaite/senaite.panic/master.svg?style=flat-square
     :target: https://travis-ci.org/senaite/senaite.panic
 
+.. image:: https://readthedocs.org/projects/pip/badge/
+    :target: https://senaitepanic.readthedocs.org
+
 .. image:: https://img.shields.io/github/issues-pr/senaite/senaite.panic.svg?style=flat-square
     :target: https://github.com/senaite/senaite.panic/pulls
 
