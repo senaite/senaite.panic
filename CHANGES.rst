@@ -1,8 +1,10 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.1.0 (unreleased)
 ------------------
+
+- Compatibility with senaite.core PR #1931
 
 
 2.0.0 (2020-10-15)
