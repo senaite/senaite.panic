@@ -4,7 +4,7 @@ Changelog
 2.1.0 (unreleased)
 ------------------
 
-- Compatibility with senaite.core PR #1931
+- #4 Fixed import for schema extender ExtBooleanField
 
 
 2.0.0 (2020-10-15)
