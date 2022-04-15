@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 BASE=${buildout:directory}
 SRC=$BASE/src/senaite/panic
