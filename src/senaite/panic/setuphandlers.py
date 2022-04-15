@@ -31,7 +31,7 @@ def setup_handler(context):
         return
 
     logger.info("{} setup handler [BEGIN]".format(PRODUCT_NAME.upper()))
-    portal = context.getSite()
+    portal = context.getSite()  # noqa
 
     # Run Installers
     # setup_something(portal)
