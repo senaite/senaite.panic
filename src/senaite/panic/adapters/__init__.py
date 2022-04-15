@@ -15,9 +15,11 @@
 # this program; if not, write to the Free Software Foundation, Inc., 51
 # Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-# Copyright 2019-2020 by it's authors.
+# Copyright 2019-2022 by it's authors.
 # Some rights reserved, see README and LICENSE.
 
+from archetypes.schemaextender.field import ExtensionField
+from Products.Archetypes.public import BooleanField
 from senaite.panic import utils
 
 
@@ -36,3 +38,8 @@ class ResultOutOfRangeAdapter(object):
 
         # Result in range (might be acceptable)
         return dict(out_of_range=False)
+
+
+class ExtBooleanField(ExtensionField, BooleanField):
+    """Boolean field
+    """

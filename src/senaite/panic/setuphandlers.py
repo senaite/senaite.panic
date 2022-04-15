@@ -15,7 +15,7 @@
 # this program; if not, write to the Free Software Foundation, Inc., 51
 # Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-# Copyright 2019-2020 by it's authors.
+# Copyright 2019-2022 by it's authors.
 # Some rights reserved, see README and LICENSE.
 
 from senaite.panic import DEFAULT_PROFILE_ID
@@ -31,7 +31,7 @@ def setup_handler(context):
         return
 
     logger.info("{} setup handler [BEGIN]".format(PRODUCT_NAME.upper()))
-    portal = context.getSite()
+    portal = context.getSite()  # noqa
 
     # Run Installers
     # setup_something(portal)

@@ -1,8 +1,10 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.1.0 (unreleased)
 ------------------
+
+- #4 Fixed import for schema extender ExtBooleanField
 
 
 2.0.0 (2020-10-15)

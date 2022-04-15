@@ -15,29 +15,28 @@
 # this program; if not, write to the Free Software Foundation, Inc., 51
 # Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-# Copyright 2019-2020 by it's authors.
+# Copyright 2019-2022 by it's authors.
 # Some rights reserved, see README and LICENSE.
 
 import collections
 
-from Products.Archetypes.Widget import BooleanWidget
-from Products.validation import validation
-from Products.validation.interfaces.IValidator import IValidator
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
-from senaite.panic import ISenaitePanicLayer
-from senaite.panic import messageFactory as _
-from zope.component import adapts
-from zope.interface import implements
-
 from bika.lims import api
-from bika.lims.fields import ExtBooleanField
+from senaite.panic.adapters import ExtBooleanField
 from bika.lims.interfaces import IAnalysisRequest
 from bika.lims.interfaces import IAnalysisSpec
 from bika.lims.validators import \
     AnalysisSpecificationsValidator as BaseValidator
 from bika.lims.validators import get_record_value
+from Products.Archetypes.Widget import BooleanWidget
+from Products.validation import validation
+from Products.validation.interfaces.IValidator import IValidator
+from senaite.panic import ISenaitePanicLayer
+from senaite.panic import messageFactory as _
+from zope.component import adapts
+from zope.interface import implements
 
 
 class AnalysisRequestSchemaExtender(object):
