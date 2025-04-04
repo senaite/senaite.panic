@@ -19,15 +19,15 @@ msgstr ""
 "Domain: DOMAIN\n"
 "Language: ca\n"
 
-#: senaite/panic/adapters/content.py:159
+#: senaite/panic/adapters/content.py:158
 msgid "'{}' value must be above '{}' or empty"
 msgstr "El valor per '{}' ha d'estar buit o ser superior a '{}'"
 
-#: senaite/panic/adapters/content.py:150
+#: senaite/panic/adapters/content.py:149
 msgid "'{}' value must be below '{}' or empty"
 msgstr "El valor per a '{}' ha d'estar buit o ser inferior a '{}'"
 
-#: senaite/panic/adapters/content.py:146
+#: senaite/panic/adapters/content.py:145
 msgid "'{}' value must be numeric or empty"
 msgstr "El valor per a '{}' ha d'estar buit o ser numèric"
 
@@ -55,27 +55,27 @@ msgstr "Cos del missatge de la plantilla de correu electrònic"
 msgid "Email alert subject"
 msgstr "Assumpte del missatge de la plantilla de correu electrònic"
 
-#: senaite/panic/adapters/content.py:160
+#: senaite/panic/adapters/content.py:159
 msgid "Max"
 msgstr "Màx"
 
-#: senaite/panic/adapters/content.py:76
+#: senaite/panic/adapters/content.py:75
 msgid "Max panic"
 msgstr "Nivell crític superior"
 
-#: senaite/panic/adapters/content.py:151
+#: senaite/panic/adapters/content.py:150
 msgid "Min"
 msgstr "Min"
 
-#: senaite/panic/adapters/content.py:75
+#: senaite/panic/adapters/content.py:74
 msgid "Min panic"
 msgstr "Nivell crític inferior"
 
-#: senaite/panic/adapters/listing.py:54
+#: senaite/panic/adapters/listing.py:55
 msgid "Panic < Min"
 msgstr "Nivell crític inferior"
 
-#: senaite/panic/adapters/listing.py:57
+#: senaite/panic/adapters/listing.py:58
 msgid "Panic > Max"
 msgstr "Nivell crític superior"
 
@@ -87,11 +87,11 @@ msgstr "Configuració de les alertes sobre resultats que sobrepassen els nivells
 msgid "Panic level alerts for SENAITE"
 msgstr "Extensió de SENAITE per a l'enviament d'alertes quan els resultats sobrepassen els nivells crítics"
 
-#: senaite/panic/browser/views.py:241
+#: senaite/panic/browser/views.py:242
 msgid "Panic notification email sent"
 msgstr "La notificació per correu electrònic indicant que alguns resultats sobrepassen els nivells crítics s'ha enviat satisfactòriament"
 
-#: senaite/panic/adapters/listing.py:112
+#: senaite/panic/adapters/listing.py:119
 msgid "Panic result"
 msgstr "El resultat sobrepassa el nivell crític"
 
@@ -135,6 +135,6 @@ msgstr "Assumpte del missatge de la plantilla de correu electrònic per a les no
 msgid "To"
 msgstr "Destinatari"
 
-#: senaite/panic/browser/views.py:232
+#: senaite/panic/browser/views.py:233
 msgid "Unable to send an email to alert client that some results exceeded the panic levels"
 msgstr "No s'ha pogut enviar al client la notificació per correu electrònic indicant que alguns resultats sobrepassen els nivells crítics"

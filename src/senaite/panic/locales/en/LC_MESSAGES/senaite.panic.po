@@ -14,15 +14,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: senaite/panic/adapters/content.py:159
+#: senaite/panic/adapters/content.py:158
 msgid "'{}' value must be above '{}' or empty"
 msgstr ""
 
-#: senaite/panic/adapters/content.py:150
+#: senaite/panic/adapters/content.py:149
 msgid "'{}' value must be below '{}' or empty"
 msgstr ""
 
-#: senaite/panic/adapters/content.py:146
+#: senaite/panic/adapters/content.py:145
 msgid "'{}' value must be numeric or empty"
 msgstr ""
 
@@ -50,27 +50,27 @@ msgstr ""
 msgid "Email alert subject"
 msgstr ""
 
-#: senaite/panic/adapters/content.py:160
+#: senaite/panic/adapters/content.py:159
 msgid "Max"
 msgstr ""
 
-#: senaite/panic/adapters/content.py:76
+#: senaite/panic/adapters/content.py:75
 msgid "Max panic"
 msgstr ""
 
-#: senaite/panic/adapters/content.py:151
+#: senaite/panic/adapters/content.py:150
 msgid "Min"
 msgstr ""
 
-#: senaite/panic/adapters/content.py:75
+#: senaite/panic/adapters/content.py:74
 msgid "Min panic"
 msgstr ""
 
-#: senaite/panic/adapters/listing.py:54
+#: senaite/panic/adapters/listing.py:55
 msgid "Panic < Min"
 msgstr ""
 
-#: senaite/panic/adapters/listing.py:57
+#: senaite/panic/adapters/listing.py:58
 msgid "Panic > Max"
 msgstr ""
 
@@ -82,11 +82,11 @@ msgstr ""
 msgid "Panic level alerts for SENAITE"
 msgstr ""
 
-#: senaite/panic/browser/views.py:241
+#: senaite/panic/browser/views.py:242
 msgid "Panic notification email sent"
 msgstr ""
 
-#: senaite/panic/adapters/listing.py:112
+#: senaite/panic/adapters/listing.py:119
 msgid "Panic result"
 msgstr ""
 
@@ -130,6 +130,6 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: senaite/panic/browser/views.py:232
+#: senaite/panic/browser/views.py:233
 msgid "Unable to send an email to alert client that some results exceeded the panic levels"
 msgstr ""
