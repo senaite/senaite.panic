@@ -1,11 +1,14 @@
 #
+# Translators:
+# Jiří Podhorecký <jirka.p@volny.cz>, 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: 2020-02-09 20:54+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Czech (https://www.transifex.com/senaite/teams/107218/cs/)\n"
+"Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2021\n"
+"Language-Team: Czech (https://app.transifex.com/senaite/teams/107218/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,120 +21,120 @@ msgstr ""
 
 #: senaite/panic/adapters/content.py:158
 msgid "'{}' value must be above '{}' or empty"
-msgstr ""
+msgstr "Hodnota '{}' musí být nad '{}' nebo prázdná"
 
 #: senaite/panic/adapters/content.py:149
 msgid "'{}' value must be below '{}' or empty"
-msgstr ""
+msgstr "Hodnota '{}' musí být pod '{}' nebo prázdná"
 
 #: senaite/panic/adapters/content.py:145
 msgid "'{}' value must be numeric or empty"
-msgstr ""
+msgstr "Hodnota „{}“ musí být číselná nebo prázdná"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:16
 msgid "Alert client"
-msgstr ""
+msgstr "Upozornit klienta"
 
 #: senaite/panic/browser/templates/panic_alert_viewlet.pt:27
 msgid "Alert client about panic levels exceeded"
-msgstr ""
+msgstr "Upozornění klienta o překročení úrovní paniky"
 
 #: senaite/panic/browser/templates/panic_alert_viewlet.pt:21
 msgid "An email alert has been sent already."
-msgstr ""
+msgstr "E-mailové upozornění již bylo odesláno."
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:49
 msgid "Body"
-msgstr ""
+msgstr "Tělo"
 
 #: senaite/panic/controlpanel.py:43
 msgid "Email alert body template"
-msgstr ""
+msgstr "Šablona těla e-mailu s upozorněním"
 
 #: senaite/panic/controlpanel.py:34
 msgid "Email alert subject"
-msgstr ""
+msgstr "Předmět e-mailu s upozorněním"
 
 #: senaite/panic/adapters/content.py:159
 msgid "Max"
-msgstr ""
+msgstr "Maximální"
 
 #: senaite/panic/adapters/content.py:75
 msgid "Max panic"
-msgstr ""
+msgstr "Maximání panika"
 
 #: senaite/panic/adapters/content.py:150
 msgid "Min"
-msgstr ""
+msgstr "Minimální"
 
 #: senaite/panic/adapters/content.py:74
 msgid "Min panic"
-msgstr ""
+msgstr "Minimální panika"
 
 #: senaite/panic/adapters/listing.py:55
 msgid "Panic < Min"
-msgstr ""
+msgstr "Panika < Minimální"
 
 #: senaite/panic/adapters/listing.py:58
 msgid "Panic > Max"
-msgstr ""
+msgstr "Panika > Maximální"
 
 #: senaite/panic/profiles/default/controlpanel.xml
 msgid "Panic Settings"
-msgstr ""
+msgstr "Nastavení paniky"
 
 #: senaite/panic/configure.zcml:35
 msgid "Panic level alerts for SENAITE"
-msgstr ""
+msgstr "Úrovně výstrah paniky pro SENAITE"
 
 #: senaite/panic/browser/views.py:242
 msgid "Panic notification email sent"
-msgstr ""
+msgstr "E-mail s oznámením paniky odeslán"
 
 #: senaite/panic/adapters/listing.py:119
 msgid "Panic result"
-msgstr ""
+msgstr "Výsledek paniky"
 
 #: senaite/panic/configure.zcml:35
 msgid "SENAITE PANIC"
-msgstr ""
+msgstr "SENAITE PANIC"
 
 #: senaite/panic/configure.zcml:51
 msgid "SENAITE PANIC (uninstall)"
-msgstr ""
+msgstr "SENAITE PANIC (odinstalovat)"
 
 #: senaite/panic/controlpanel.py:58
 msgid "SENAITE PANIC Settings"
-msgstr ""
+msgstr "SENAITE PANIC Nastavení"
 
 #: senaite/panic/browser/templates/panic_alert_viewlet.pt:18
 msgid "Some results exceeded the panic levels"
-msgstr ""
+msgstr "Některé výsledky překročily úrovně paniky"
 
 #: senaite/panic/controlpanel.py:38
 msgid "Some results from Sample ${sample_id} exceeded panic range"
-msgstr ""
+msgstr "Některé výsledky ze vzorku ${sample_id} překročily rozsah paniky"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:19
 msgid "Some values exceeded the panic levels. Send an email to the clinic or close this window if you want to re-test to confirm the panic value."
-msgstr ""
+msgstr "Některé hodnoty překročily úrovně paniky. Zašlete e-mail na kliniku nebo zavřete toto okno, pokud chcete znovu otestovat, abyste potvrdili hodnotu paniky."
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:32
 msgid "Subject"
-msgstr ""
+msgstr "Předmět"
 
 #: senaite/panic/controlpanel.py:44
 msgid "Template text for the panic alert email's body. The accepted wildcards are: ${analyses}, ${lab_address}, ${sample_id}, {client_sample_id}, ${client_id} and ${sample_url}"
-msgstr ""
+msgstr "Text šablony pro tělo e-mailu panické výstrahy. Přijímané zástupné znaky jsou: ${analyses}, ${lab_address}, ${sample_id}, {client_sample_id}, ${client_id} a ${sample_url}"
 
 #: senaite/panic/controlpanel.py:35
 msgid "Template text for the panic alert email's subject. The accepted wildcards are: ${sample_id}, {client_sample_id} and ${client_id}"
-msgstr ""
+msgstr "Text šablony pro předmět e-mailu s panickým varováním. Přijímané zástupné znaky jsou: ${sample_id}, {client_sample_id} a ${client_id}"
 
 #: senaite/panic/browser/templates/panic_alert_email.pt:40
 msgid "To"
-msgstr ""
+msgstr "Komu"
 
 #: senaite/panic/browser/views.py:233
 msgid "Unable to send an email to alert client that some results exceeded the panic levels"
-msgstr ""
+msgstr "Nelze odeslat e-mail s upozorněním klienta, že některé výsledky překročily úrovně paniky"
