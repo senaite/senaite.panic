@@ -137,8 +137,7 @@ class EmailPopupView(BrowserView):
     def body(self):
         """Returns the body message of the email
         """
-        setup = api.get_setup()
-        laboratory = setup.laboratory
+        laboratory = api.get_senaite_setup().laboratory
         lab_address = "\n".join(laboratory.getPrintAddress())
         analyses = map(self.to_str, self.get_analyses_in_panic(self.sample))
         analyses = "\n-".join(analyses)
@@ -209,8 +208,7 @@ class EmailPopupView(BrowserView):
 
     def send_panic_email(self):
         # Send an alert email
-        setup = api.get_setup()
-        laboratory = setup.laboratory
+        laboratory = api.get_senaite_setup().laboratory
         subject = self.request.get('subject')
         to = self.request.get('to')
         body = self.request.get('email_body')
