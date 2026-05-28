@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeStep
+      title="Upgrade to SENAITE.PANIC 2.2.0"
+      source="2.1.0"
+      destination="2200"
+      handler=".v02_02_000.upgrade"
+      profile="senaite.panic:default"/>
+
+</configure>

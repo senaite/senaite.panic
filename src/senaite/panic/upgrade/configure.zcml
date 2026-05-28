@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <!-- 2.2.0 -->
+  <include file="v02_02_000.zcml" />
+
+</configure>
