@@ -17,6 +17,7 @@
   <!-- Package includes -->
   <include package=".adapters"/>
   <include package=".browser"/>
+  <include package=".upgrade"/>
 
   <!-- Static resource directory -->
   <browser:resourceDirectory
