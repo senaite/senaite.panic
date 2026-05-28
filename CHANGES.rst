@@ -4,6 +4,7 @@ Changelog
 2.2.0 (unreleased)
 ------------------
 
+- #5 Compatibility with core#2810 (Laboratory to DX)
 
 
 2.1.0 (2025-04-04)
